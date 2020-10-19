@@ -1,0 +1,37 @@
+.ticketContainer {
+  /* margin: 25px auto; */
+  width: 75%;
+  margin: auto;
+}
+.tableContainer {
+  border-collapse: collapse;
+  /* background-color: rgb(224, 224, 224); */
+  /* border: 1px solid black; */
+  margin: 0;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  width: auto;
+}
+.tableContainer > thead > tr {
+  background-color: var(--secondary-color);
+  color: var(--secondary-fontcolor);
+}
+.tableContainer > thead > tr > td {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 15px;
+}
+.btn.new-ticket {
+  background-color: var(--secondary-color);
+  color: var(--secondary-fontcolor);
+  border-color: var(--secondary-color);
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 18px;
+  margin: 5px 0;
+  font-weight: bold;
+  overflow: hidden;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,24 @@
+.row {
+  font-size: 0.9rem;
+}
+.row > .link {
+  padding: 2px 5px;
+}
+.row > td {
+  padding: 12px 15px;
+}
+.row > td > a {
+  text-decoration: underline;
+  color: rgb(0, 0, 888);
+}
+.row > td > a:hover {
+  font-weight: bolder;
+  font-size: 0.95rem;
+}
+
+.row {
+  border-bottom: 1px solid var(--secondary-color);
+}
+.row:nth-of-type(even) {
+  background-color: #f3f3f3;
+}

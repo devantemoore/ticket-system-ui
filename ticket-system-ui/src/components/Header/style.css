@@ -1,0 +1,27 @@
+.navbar {
+  background-color: var(--secondary-color);
+  height: 50px;
+  margin-bottom: 10px;
+}
+.navbar > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.navbar > ul > li {
+  float: left;
+}
+.navbar > ul > li:hover,
+.navbar > ul > li > a:hover {
+  background-color: var(--secondary-fontcolor);
+  color: black;
+}
+
+.navbar > ul > li > a {
+  display: block;
+  color: var(--secondary-fontcolor);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
