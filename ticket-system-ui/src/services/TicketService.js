@@ -1,4 +1,4 @@
-import API from "./api";
+import API from "./api"; // App API: will add more models and endpoints (ex: Users, Orgs...)
 
 const getAll = () => {
   return API.get("tickets");
