@@ -1,12 +1,23 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import TicketService from "../../services/TicketService"
 import "./style.css";
 
 export default function Form() {
-  const { handleSubmit, watch } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(watch("title"));
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data, e) => createTicket(data, e);
+  
+
+  const createTicket = (data) => {
+    TicketService.create(data)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <div className="detail-container">
@@ -15,25 +26,25 @@ export default function Form() {
         <div className="card-body create">
           <label>Title:</label>
           <br />
-          <input name="title" />
+          <input name="title" ref={register}/>
           <br />
 
           <label>Description:</label>
           <br />
-          <textarea name="description" />
+          <textarea name="description" ref={register}/>
           <br />
 
           <label>Name:</label>
           <br />
-          <input name="createdBy" />
+          <input name="createdBy" ref={register}/>
 
           <label>Email:</label>
-          <input name="email" />
+          <input name="email" ref={register}/>
           <br />
 
           <label>Priority:</label>
           <br />
-          <select name="priority">
+          <select name="priority" ref={register}>
             <option value="">Select...</option>
             <option value="0">Low</option>
             <option value="1">Medium</option>
@@ -44,7 +55,7 @@ export default function Form() {
           <Link to="/tickets" className="btn">
             Back to List
           </Link>
-          <input type="submit" />
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>

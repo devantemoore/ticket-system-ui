@@ -23,7 +23,7 @@
   padding: 8px 15px;
 }
 
-.card-footer input[type="submit"] {
+.card-footer button[type="submit"] {
   cursor: pointer;
   padding: 10px 15px;
   background-color: #4caf50;

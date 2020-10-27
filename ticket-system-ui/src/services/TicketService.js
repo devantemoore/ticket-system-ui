@@ -8,9 +8,11 @@ const get = (id) => {
   return API.get(`tickets/${id}`);
 };
 
-const create = (data) => {};
+const create = (data) => {
+  return API.post("tickets", data);
+};
 const update = (id, data) => {};
 const remove = (id) => {};
 const removeAll = () => {};
 
-export default { getAll, get };
+export default { getAll, get, create };
