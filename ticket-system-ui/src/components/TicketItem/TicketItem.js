@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./style.css";
 import { Link } from "react-router-dom";
 
@@ -31,7 +30,7 @@ const TicketItem = (props) => {
     <tbody>
       {props.tickets.map((ticket) => {
         return (
-          <tr className="row">
+          <tr className="row" key={ticket.id}>
             <td>
               <Link to={"/tickets/" + ticket.id}>{ticket.ticketNumber}</Link>
             </td>

@@ -9,7 +9,11 @@ const get = (id) => {
 };
 
 const create = (data) => {
-  return API.post("tickets", data);
+  return API.post("tickets", data, {
+    headers: {
+        'Content-Type': 'application/problem+json; charset=utf-8'
+    }
+});
 };
 const update = (id, data) => {};
 const remove = (id) => {};
