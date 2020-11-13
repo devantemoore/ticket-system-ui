@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import TicketService from "../../services/TicketService";
 import "./style.css";
+//import notifications from '../../services/notificationService/notifications'
 
-export default function Form() {
+export default function Form(props) {
   const initialTicket = 
     {
       "Title": "",
@@ -26,8 +27,10 @@ export default function Form() {
           return null;
       }
     };
-
+    
+  
   const { register, handleSubmit } = useForm();
+  //const [notiFlag, setNotiFlag] = useState(false);
   const onSubmit = (data) => {
 
     // ------- HAS TO BE A BETTER WAY TO IMPLEMENT THIS -------
@@ -37,58 +40,62 @@ export default function Form() {
     initialTicket.Email = data.email;
     initialTicket.Priority = getPriority(data.priority);
     createTicket(initialTicket);
-    console.log(initialTicket);
   }
+
+
 
   const createTicket = (data) => {
     TicketService.create(data)
       .then((response) => {
         console.log(response);
+        props.history.push('/');
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
+  
   return (
-    <div className="detail-container">
-      <form className="ticket-card" onSubmit={handleSubmit(onSubmit)}>
-        <div className="card-header">Create New Ticket</div>
-        <div className="card-body create">
-          <label>Title:</label>
-          <br />
-          <input name="title" ref={register} />
-          <br />
+    <div>
+      
+      <div className="detail-container">
+        <form className="ticket-card" onSubmit={handleSubmit(onSubmit)}>
+          <div className="card-header">Create New Ticket</div>
+          <div className="card-body create">
+            <label>Title:</label>
+            <br />
+            <input name="title" ref={register} />
+            <br />
 
-          <label>Description:</label>
-          <br />
-          <textarea name="description" ref={register} />
-          <br />
+            <label>Description:</label>
+            <br />
+            <textarea name="description" ref={register} />
+            <br />
 
-          <label>Name:</label>
-          <br />
-          <input name="createdBy" ref={register} />
+            <label>Name:</label>
+            <br />
+            <input name="createdBy" ref={register} />
 
-          <label>Email:</label>
-          <input name="email" ref={register} />
-          <br />
+            <label>Email:</label>
+            <input name="email" ref={register} />
+            <br />
 
-          <label>Priority:</label>
-          <br />
-          <select name="priority" ref={register}>
-            <option value="">Select...</option>
-            <option value="0">Low</option>
-            <option value="1">Medium</option>
-            <option value="2">High</option>
-          </select>
-        </div>
-        <div className="card-footer">
-          <Link to="/tickets" className="btn">
-            Back to List
-          </Link>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
-  );
+            <label>Priority:</label>
+            <br />
+            <select name="priority" ref={register}>
+              <option value="">Select...</option>
+              <option value="0">Low</option>
+              <option value="1">Medium</option>
+              <option value="2">High</option>
+            </select>
+          </div>
+          <div className="card-footer">
+            <Link to="/tickets" className="btn">
+              Back to List
+            </Link>
+            <button type="submit"/* onClick={notifications.createNotification('success')} */>Submit</button>
+          </div>
+        </form>
+      </div>
+  </div>);
 }

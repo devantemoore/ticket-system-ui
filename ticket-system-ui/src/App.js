@@ -5,6 +5,9 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Header from "./components/Header/Header";
 import Tickets from "./components/Ticket/Tickets";
+import {NotificationContainer} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 
 function App() {
   return (
@@ -15,6 +18,7 @@ function App() {
         <Route path="/tickets/:id" component={Detail} />
         <Route exact path={["/", "/tickets"]} component={Tickets} />
       </Switch>
+      <NotificationContainer/>
     </div>
   );
 }
