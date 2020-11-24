@@ -15,10 +15,12 @@ const create = (data) => {
     }
 });
 };
-const update = (id, data) => {};
+const update = (id, data) => {
+  return API.put(`tickets/${id}`, data);
+};
 const remove = (id) => {
   return API.delete(`tickets/${id}`);
 };
 const removeAll = () => {};
 
-export default { getAll, get, create, remove };
+export default { getAll, get, create, update, remove };

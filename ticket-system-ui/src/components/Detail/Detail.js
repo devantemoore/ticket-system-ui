@@ -81,7 +81,7 @@ const Detail = (props) => {
             <Link className="btn delete" onClick={handleDelete}>
               Delete
             </Link>
-            <Link to="/tickets/edit/:id" className="btn edit">
+            <Link to={"/tickets/edit/" + ticket.id} className="btn edit">
               Edit
             </Link>
           </div>
