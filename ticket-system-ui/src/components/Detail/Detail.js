@@ -17,6 +17,24 @@ const Detail = (props) => {
     status: null,
   };
   const [ticket, setTicket] = useState(initialTicket);
+  const [deleteFlag, setDeleteFlag] = useState(false);
+
+
+  const handleDelete = () => {
+    if (ticket.id != null)
+    removeTicket(ticket.id);
+  }
+
+  const removeTicket = (id) =>{
+    TicketService.remove(id)
+      .then((response) => {
+        console.log(response);
+        props.history.push('/');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   const getTicketById = (id) => {
     TicketService.get(id)
@@ -60,7 +78,7 @@ const Detail = (props) => {
             <Link to="/tickets" className="btn">
               Back to List
             </Link>
-            <Link to="/tickets/modal" className="btn delete">
+            <Link className="btn delete" onClick={handleDelete}>
               Delete
             </Link>
             <Link to="/tickets/edit/:id" className="btn edit">

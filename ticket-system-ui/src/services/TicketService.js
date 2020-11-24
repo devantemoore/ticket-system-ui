@@ -16,7 +16,9 @@ const create = (data) => {
 });
 };
 const update = (id, data) => {};
-const remove = (id) => {};
+const remove = (id) => {
+  return API.delete(`tickets/${id}`);
+};
 const removeAll = () => {};
 
-export default { getAll, get, create };
+export default { getAll, get, create, remove };
