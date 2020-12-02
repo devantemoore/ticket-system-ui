@@ -17,12 +17,15 @@ const Detail = (props) => {
     status: null,
   };
   const [ticket, setTicket] = useState(initialTicket);
-  const [deleteFlag, setDeleteFlag] = useState(false);
+  //const [deleteFlag, setDeleteFlag] = useState(false);
 
 
   const handleDelete = () => {
-    if (ticket.id != null)
-    removeTicket(ticket.id);
+    if (ticket.id != null){
+      //console.log(ticket.id);
+      removeTicket(ticket.id);
+  }
+    
   }
 
   const removeTicket = (id) =>{

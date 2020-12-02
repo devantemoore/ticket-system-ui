@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
+import TicketService from "../../services/TicketService";
 
 const TicketItem = (props) => {
   const getPriority = (ticket) => {
@@ -25,6 +26,20 @@ const TicketItem = (props) => {
         return "Open";
     }
   };
+  const handleDelete = (id) => {
+    //e.preventDefault();
+    console.log("ticket id: " + id);
+    removeTicket(id);
+  }
+  const removeTicket = (id) => {
+    TicketService.remove(id)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+  }
 
   return (
     <tbody>
@@ -48,7 +63,7 @@ const TicketItem = (props) => {
               </a>
             </td>
             <td className="link">
-              <a href="#">
+              <a href="/" onClick={() => handleDelete(ticket.id)}>
                 <i className="far fa-trash-alt" />
               </a>
             </td>

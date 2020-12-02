@@ -89,6 +89,7 @@ export default function Edit(props) {
       TicketService.update(props.match.params.id, _updatedTicket)
         .then((response) => {
           console.log(response)
+          props.history.push('/');
         })
         .catch((e) => {
           console.log(e);
