@@ -43,7 +43,7 @@ const TicketItem = (props) => {
             <td>{getPriority(ticket)}</td>
             <td>{getStatus(ticket)}</td>
             <td className="link">
-              <a href="#">
+              <a href={"/tickets/edit/" + ticket.id}>
                 <i className="far fa-edit"></i>
               </a>
             </td>
